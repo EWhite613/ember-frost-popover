@@ -25,7 +25,7 @@ export default Ember.Component.extend({
         result = 'middle right'
         break
       default:
-        result = 'middle left'     
+        result = 'middle left'
         break
     }
     console.log('targetAttachment', result)
@@ -42,13 +42,13 @@ export default Ember.Component.extend({
         result = 'bottom center'
         break
       case 'right':
-        result = 'middle left'      
+        result = 'middle left'
         break
       default:
         result = 'middle right'
         break
     }
-    console.log('attachment', result)    
+    console.log('attachment', result)
     return result
   }),
   didInsertElement () {
