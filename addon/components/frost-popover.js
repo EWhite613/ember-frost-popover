@@ -5,13 +5,6 @@ import {
   target
 } from 'liquid-tether'
 
-function guidGenerator () {
-  var S4 = function () {
-    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-  }
-  return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4())
-}
-
 export default Ember.Component.extend({
   layout,
   visible: false,
@@ -62,11 +55,11 @@ export default Ember.Component.extend({
   }),
   didInsertElement () {
     let transitionService = this.get('container').lookup('service:liquid-fire-transitions')
-    let randomID = guidGenerator()
-    this.set('to', randomID + this.get('position'))
+    let elementId = this.get('elementId')
+    this.set('to', elementId + this.get('position'))
     transitionService.map(function () {
       this.transition(
-        target(randomID + 'left'),
+        target(elementId + 'left'),
         this.use('tether', ['fade-left', {
           duration: 400,
           easing: [600, 22]
@@ -74,7 +67,7 @@ export default Ember.Component.extend({
       )
 
       this.transition(
-        target(randomID + 'right'),
+        target(elementId + 'right'),
         this.use('tether', ['fade-right', {
           duration: 400,
           easing: [600, 22]
@@ -82,7 +75,7 @@ export default Ember.Component.extend({
       )
 
       this.transition(
-        target(randomID + 'top'),
+        target(elementId + 'top'),
         this.use('tether', ['fade-up', {
           duration: 400,
           easing: [600, 22]
@@ -90,7 +83,7 @@ export default Ember.Component.extend({
       )
 
       this.transition(
-        target(randomID + 'bottom'),
+        target(elementId + 'bottom'),
         this.use('tether', ['fade-down', {
           duration: 400,
           easing: [600, 22]
