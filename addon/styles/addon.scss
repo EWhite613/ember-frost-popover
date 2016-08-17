@@ -1,11 +1,9 @@
-.tooltip-frost-popover {
+.frost-popover {
   max-width: inherit;
   pointer-events: auto;
   background-color: white;
   border: solid 1px black;
   text-decoration: none;
-  position: absolute;
-  display: block;
   padding: 0 20px;
   &:after {
     content: '';
@@ -18,35 +16,35 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-  &.invisible{
-    visibility: hidden;
-  }
+  // &.invisible{
+  //   visibility: hidden;
+  // }
 }
 
-.tooltip-frost-popover.bottom:after, .tooltip-frost-popover.bottom-left:after, .tooltip-frost-popover.bottom-right:after {
-  top: -1px;
+.frost-popover.bottom:after, .frost-popover.bottom-left:after, .frost-popover.bottom-right:after {
+  top: 0px;
   left: 50%;
   border-top: solid 1px black;
   border-left: solid 1px black;
 }
 
-.tooltip-frost-popover.right:after, .tooltip-frost-popover.right-top:after, .tooltip-frost-popover.right-bottom:after {
-  left: -1px;
+.frost-popover.right:after, .frost-popover.right-top:after, .frost-popover.right-bottom:after {
+  left: 0px;
   top: 50%;
   border-bottom: solid 1px black;
   border-left: solid 1px black;
 }
 
-.tooltip-frost-popover.top:after, .tooltip-frost-popover.top-left:after, .tooltip-frost-popover.top-right:after {
-  bottom: -1px;
+.frost-popover.top:after, .frost-popover.top-left:after, .frost-popover.top-right:after {
+  bottom: 0px;
   left: 50%;
   border-bottom: solid 1px black;
   border-right: solid 1px black;
 }
 
 
-.tooltip-frost-popover.left:after, .tooltip-frost-popover.left-top:after, .tooltip-frost-popover.left-bottom:after {
-  right: -1px;
+.frost-popover.left:after, .frost-popover.left-top:after, .frost-popover.left-bottom:after {
+  right: 0px;
   top: 50%;
   border-top: solid 1px black;
   border-right: solid 1px black;

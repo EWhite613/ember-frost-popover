@@ -1,1 +1,16 @@
-{{yield (action 'close')}}
+
+{{#if visible}}
+  {{#liquid-tether
+    to="left"
+    target=target
+    attachment=attachment
+    targetAttachment=targetAttachment
+    class="popover"
+    tetherClass="tether123"
+    overlayClass="overlay123"
+  }}
+    <div class='frost-popover {{position}}'>
+    {{yield (action 'close')}}
+    </div>
+  {{/liquid-tether}}
+{{/if}}
