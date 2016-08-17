@@ -1,5 +1,5 @@
 // import { animate, Promise } from "liquid-fire";
-import { target } from 'liquid-tether'
+import { target,onOpenTether  } from 'liquid-tether'
 
 export default function () {
   this.transition(
@@ -19,6 +19,8 @@ export default function () {
 
   this.transition(
     target('bottom'),
-    this.use('tether', ['fade-down', { duration: 400, easing: [600, 22] }])
+    onOpenTether(),
+    this.use('tether', ['fade-down', { duration: 400, easing: [600, 22] }]),
+    this.reverse('tether', ['fade-down', { duration: 400, easing: [600, 22] }])
   )
 }

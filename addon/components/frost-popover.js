@@ -1,6 +1,16 @@
 import $ from 'jquery'
 import Ember from 'ember'
 import layout from '../templates/components/frost-popover'
+import {
+  target
+} from 'liquid-tether'
+
+function guidGenerator () {
+  var S4 = function () {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+  }
+  return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4())
+}
 
 export default Ember.Component.extend({
   layout,
@@ -8,6 +18,7 @@ export default Ember.Component.extend({
   event: 'click',
   exitEvent: null,
   closest: false,
+  to: null,
   position: 'bottom',
   index: 0,
   classNameBindings: ['position', 'visible:visible:invisible'],
@@ -50,6 +61,42 @@ export default Ember.Component.extend({
     return result
   }),
   didInsertElement () {
+    let transitionService = this.get('container').lookup('service:liquid-fire-transitions')
+    let randomID = guidGenerator()
+    this.set('to', randomID + this.get('position'))
+    transitionService.map(function () {
+      this.transition(
+        target(randomID + 'left'),
+        this.use('tether', ['fade-left', {
+          duration: 400,
+          easing: [600, 22]
+        }])
+      )
+
+      this.transition(
+        target(randomID + 'right'),
+        this.use('tether', ['fade-right', {
+          duration: 400,
+          easing: [600, 22]
+        }])
+      )
+
+      this.transition(
+        target(randomID + 'top'),
+        this.use('tether', ['fade-up', {
+          duration: 400,
+          easing: [600, 22]
+        }])
+      )
+
+      this.transition(
+        target(randomID + 'bottom'),
+        this.use('tether', ['fade-down', {
+          duration: 400,
+          easing: [600, 22]
+        }])
+      )
+    })
     Ember.run.next(() => {
       const context = this
       if (this.get('closest')) {
