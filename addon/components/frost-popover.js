@@ -51,14 +51,24 @@ export default Ember.Component.extend({
   didInsertElement () {
     Ember.run.next(() => {
       const context = this
-      $(this.get('target')).on(this.get('event'), function () {
-        context.send('togglePopover')
-      })
+      if (this.get('closest')) {
+        let closest = this.$().closest(this.get('target'))
+        closest.on(this.get('event'), function () {
+          context.send('togglePopover')
+        })
+        this.set('target', closest)
+      } else {
+        $(this.get('target')).on(this.get('event'), function () {
+          context.send('togglePopover')
+        })
+      }
     })
   },
   actions: {
     close () {
-      if (this.get('isDestroyed')) { return }
+      if (this.get('isDestroyed')) {
+        return
+      }
       this.set('visible', false)
     },
     togglePopover () {
