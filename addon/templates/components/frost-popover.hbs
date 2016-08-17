@@ -5,11 +5,13 @@
     attachment=attachment
     targetAttachment=targetAttachment
     class="popover"
-    tetherClass="tether123"
-    overlayClass="overlay123"
+    tetherClass="popover-tether"
+    overlayClass="popover-overlay"
   }}
     <div class='frost-popover {{position}}'>
-    {{yield (action 'close')}}
+      <div class='container'>
+        {{yield (action 'close')}}
+      </div>
     </div>
   {{/liquid-tether}}
 {{/if}}

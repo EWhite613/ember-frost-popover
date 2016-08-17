@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   layout,
   visible: false,
   event: 'click',
+  exitEvent: null,
   closest: false,
   position: 'bottom',
   index: 0,

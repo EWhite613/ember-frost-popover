@@ -2,20 +2,20 @@
 frost-popover testbed
 </div>
 {{#frost-popover target='.target'}}
-  <span class='inside'>Inside</span>
+  <div class='inside'>Bottom</div>
 {{/frost-popover}}
 
 <div class='close'>
 closest testbed
 {{#frost-popover target='.close' closest=true}}
-  <span class='inside'>Closest</span>
+  <div class='inside'>Closest Bottom</div>
 {{/frost-popover}}
 </div>
 
 <div class='close'>
 closest testbed
 {{#frost-popover target='.close' closest=true position='top'}}
-  <span class='inside'>Closer</span>
+  <div class='inside'>Closest Top</div>
 {{/frost-popover}}
 </div>
 
@@ -23,30 +23,35 @@ closest testbed
 <div id='left1' class='lefty'>
 left testbed 1
 {{#frost-popover target='#left1' closest=true position='right'}}
-  <span class='inside'>left1</span>
+  <div class='inside'>Right</div>
 {{/frost-popover}}
 </div>
 <div id='left2' class='lefty'>
 left testbed 2
 {{#frost-popover target='#left2' closest=true position='left'}}
-  <span class='inside'>left 2</span>
+  <div class='inside'>Left</div>
 {{/frost-popover}}
 </div>
 <div id='left3' class='lefty'>
 left testbed 3
 {{#frost-popover target='#left3' closest=true position='bottom'}}
-  <span class='inside'>left 3</span>
+<div class="flex-container">
+    <div>Div 1</div>
+    <div>Div 2</div>
+    <div>Div 3</div>
+    <div>Div 4</div>
+</div>
 {{/frost-popover}}
 </div>
 <div id='left4' class='lefty'>
 left testbed 4
 {{#frost-popover target='#left4' closest=true position='top'}}
-  <span class='inside'>left 4 left 4 left 4left 4left 4left 4left 4</span>
+  <div class='inside'>Very very very very very long popover top</div>
 {{/frost-popover}}
 </div>
 <div id='left5' class='lefty'>
 left testbed 5
-{{#frost-popover target='#left5' closest=true position='right'}}
-  <span class='inside'>left 5 left 5 left 5left 5left 5left 5left 5left 5left 5left 5</span>
+{{#frost-popover target='#left5' closest=true position='right' event='mouseover mouseleave'}}
+  <div class='inside'>Very very very very very long popover top right</div>
 {{/frost-popover}}
 </div>
