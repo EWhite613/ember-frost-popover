@@ -1,7 +1,6 @@
 import $ from 'jquery'
 import Ember from 'ember'
 import layout from '../templates/components/frost-popover'
-const ESC = 27
 
 export default Ember.Component.extend({
   layout,
