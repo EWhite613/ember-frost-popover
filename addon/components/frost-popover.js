@@ -35,8 +35,9 @@ export default Ember.Component.extend({
       this.toggleProperty('visible')
       let position = this.get('position')
       let targetRect
-      // eslint-disable-next-line max-len
-      let targetElement = this.get('closest') ? this.$().closest(this.get('target'))[this.get('index')] : this.get('parentView').$(this.get('target'))[this.get('index')]
+      let targetElement = this.get('closest')
+      ? this.$().closest(this.get('target'))[this.get('index')] : this.get('parentView')
+      .$(this.get('target'))[this.get('index')]
       targetRect = {
         top: targetElement.offsetTop,
         left: targetElement.offsetLeft,
@@ -58,8 +59,6 @@ export default Ember.Component.extend({
             let cs = window.getComputedStyle(targetElement)
             top -= parseInt(cs.getPropertyValue('padding-bottom'))
           }
-          popoverElement.style.top = top + 'px'
-          popoverElement.style.left = left + 'px'
           break
         case 'top':
           top = targetRect.top - popoverRect.height - this.get('offset')
@@ -68,8 +67,6 @@ export default Ember.Component.extend({
             let cs = window.getComputedStyle(targetElement)
             top += parseInt(cs.getPropertyValue('padding-top'))
           }
-          popoverElement.style.top = top + 'px'
-          popoverElement.style.left = left + 'px'
           break
         case 'left':
           top = targetRect.top + targetRect.height / 2 - popoverRect.height / 2
@@ -78,8 +75,6 @@ export default Ember.Component.extend({
             let cs = window.getComputedStyle(targetElement)
             left += parseInt(cs.getPropertyValue('padding-left'))
           }
-          popoverElement.style.top = top + 'px'
-          popoverElement.style.left = left + 'px'
           break
         case 'right':
           top = targetRect.top + targetRect.height / 2 - popoverRect.height / 2
@@ -88,10 +83,10 @@ export default Ember.Component.extend({
             let cs = window.getComputedStyle(targetElement)
             left -= parseInt(cs.getPropertyValue('padding-right'))
           }
-          popoverElement.style.top = top + 'px'
-          popoverElement.style.left = left + 'px'
           break
       }
+      popoverElement.style.top = top + 'px'
+      popoverElement.style.left = left + 'px'
     }
   }
 })
