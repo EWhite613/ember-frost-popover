@@ -1,2 +1,4 @@
+{{#if (or (not enableLazyRender) visible)}}
 {{yield (action 'close')}}
 <div class='tooltip-arrow' />
+{{/if}}

@@ -18,6 +18,7 @@ export default Component.extend(PropTypeMixin, {
     closest: PropTypes.bool,
     delay: PropTypes.number,
     hideDelay: PropTypes.number, // This currently doesn't work properly with 'click'
+    enableLazyRender: PropTypes.bool,
     event: PropTypes.string,
     excludePadding: PropTypes.bool,
     handlerIn: PropTypes.string,
@@ -39,6 +40,7 @@ export default Component.extend(PropTypeMixin, {
   getDefaultProps () {
     return {
       closest: false,
+      enableLazyRender: false,
       event: 'click',
       excludePadding: false,
       index: 0,
